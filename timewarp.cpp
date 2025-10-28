@@ -22,9 +22,7 @@ void main(){
     gl_Position = vec4(inPos, 0.0, 1.0);
 }
 )glsl";
-/* Original shader from Shadertoy by user 'thedoctor' (https://www.shadertoy.com/view/lsf3zN)
-   Adapted for OpenGL application.
-*/ /*
+ /*
 static const char* fragmentShaderSrc = R"glsl(
 #version 330 core
 in vec2 uv;
@@ -169,7 +167,7 @@ float tunnelSDF(vec3 p){
     float r = length(p.xy);
     float wave = 0.35 * sin(6.0 * p.z + 2.0 * sin(3.0 * p.z + iTime * 0.6));
     float rings = 0.22 * sin(40.0 * (r + 0.6 * sin(2.0 * p.z + iTime)));
-    float radius = 1.0 + wave + rings;
+    float radius = 36.0 + wave + rings;
     return r - radius;
 }
 
