@@ -159,7 +159,7 @@ void main(){
     col += 0.15 * palette(basePos + 0.2) * (0.5 + 0.5 * noise(p * 8.0 + iTime*0.7));
 
     // radial streaks / veins
-    float veins = 0.5 + 0.5 * sin(30.0 * length(p) - iTime * 30.2 + noise(p*12.0));
+    float veins = 0.5 + 10.5 * sin(30.0 * length(p) - iTime * 3.2 + noise(p*12.0));
     col += 0.12 * palette(basePos + 0.35) * veins;
 
     // subtle bloom by raising near-center intensity
@@ -179,7 +179,7 @@ void main(){
     col.b = mix(col.b, palette(fract(basePos - caNoise*0.02 - 0.02)).b, 0.12);
 
     // final color grading and gamma
-    col = pow(clamp(col, 0.0, 1.0), vec3(0.55));
+    col = pow(clamp(col, 0.0, 1.0), vec3(0.85));
     fragColor = vec4(col, 1.0);
 }
 )glsl";
