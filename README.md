@@ -1,4 +1,4 @@
-# Timewarp: learning OpenGL
+# Timewarp: OpenGL AI Shaders and other Experiments
 
 Right mouse click project and open nuget package manager and install vcpkg<br>
 or use git clone https://github.com/microsoft/vcpkg.git C:\cpp_src\vcpkg<br><br>
