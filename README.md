@@ -19,3 +19,5 @@ opengl32.lib<br>
 SDL2.lib<br>
 (plus any others you need, like SDL2_image.lib if you use them).<br>
 - Add to Build Events / Post Build: copy /y C:\dev\vcpkg\installed\x64-windows\bin\SDL2.dll $(OutDir)
+
+<img src=https://github.com/RayColt/timewarp/blob/master/.gitfiles/timewarp.jpg />
