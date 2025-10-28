@@ -6,9 +6,9 @@ Inside Developer Powershell:<br>
 - cd C:\dev\vcpkg
 - vcpkg install sdl2<br>
 - vcpkg install sdl3<br>
+- vcpkg install glad:x64-windows<br>
+- vcpkg install glew:x64-windows<br>
 - vcpkg integrate install<br>
-- vcpkg install glad:x64-windows
-- vcpkg install glew:x64-windows
 
 Right mouse click project / properties:<br>
 - Add to C++ / General / Additional Include Directories: C:\dev\vcpkg\installed\x64-windows\include<br>
