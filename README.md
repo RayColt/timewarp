@@ -22,3 +22,4 @@ SDL2.lib<br>
 - Add to Build Events / Post Build: copy /y C:\dev\vcpkg\installed\x64-windows\bin\SDL2.dll $(OutDir)
 
 <img src=https://github.com/RayColt/timewarp/blob/master/.gitfiles/timewarp.jpg />
+<img src=https://github.com/RayColt/timewarp/blob/master/.gitfiles/timewarp2.jpg />
