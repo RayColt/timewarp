@@ -1,7 +1,7 @@
 # Timewarp: learning OpenGL
 
 Right mouse click project and open nuget package manager and install vcpkg<br>
-or use git clone https://github.com/microsoft/vcpkg.git C:\cpp_src\vcpkg
+or use git clone https://github.com/microsoft/vcpkg.git C:\cpp_src\vcpkg<br>
 Inside Developer Powershell:<br>
 - cd C:\cpp_src\vcpkg
 - vcpkg install sdl2<br>
