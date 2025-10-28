@@ -16,7 +16,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="install-vcpkg-and-sdl.ps1" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="shader2-twirl.cpp">

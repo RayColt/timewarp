@@ -135,7 +135,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="install-vcpkg-and-sdl.ps1" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
