@@ -1,5 +1,4 @@
 # Timewarp: Learning OpenGL, AI Generated Shaders and other Experiments
-# meaning raw working code, at least most of them
 Right mouse click project and open nuget package manager and install vcpkg<br>
 or use git clone https://github.com/microsoft/vcpkg.git C:\dev\vcpkg<br><br>
 Inside Developer Powershell:<br>
