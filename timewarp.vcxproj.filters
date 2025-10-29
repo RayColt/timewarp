@@ -18,7 +18,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="shader5-45single.cpp">
+    <ClCompile Include="shader2-twirl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
