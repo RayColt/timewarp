@@ -12,7 +12,6 @@ Inside Developer Powershell:<br>
 
 Right mouse click project / properties:<br>
 - Add to C++ / General / Additional Include Directories: C:\dev\vcpkg\installed\x64-windows\include<br>
-If still necessary:
 - Add to Linker / General / Additional library Directories: C:\dev\vcpkg\installed\x64-windows\lib<br>
 - Add to  Linker / Input /  Additional Dependencies:<br>
 glad.lib<br>
