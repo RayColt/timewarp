@@ -1,6 +1,6 @@
 # Timewarp: Learning OpenGL, AI Generated Shaders and other Experiments
-Right mouse click project and open nuget package manager and install vcpkg<br>
-or use git clone https://github.com/microsoft/vcpkg.git C:\dev\vcpkg<br><br>
+Install git(https://gitforwindows.org/) and install vcpkg<br>
+using: git clone https://github.com/microsoft/vcpkg.git C:\dev\vcpkg<br><br>
 Inside Developer Powershell:<br>
 - cd C:\dev\vcpkg
 - vcpkg install sdl2<br>
