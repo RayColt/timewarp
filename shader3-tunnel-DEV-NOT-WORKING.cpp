@@ -1,6 +1,6 @@
 // main.cpp
 // Build: see instructions below
-
+// In development!! see todo
 #define SDL_MAIN_HANDLED
 #pragma comment(linker, "/SUBSYSTEM:CONSOLE")
 #include <glad/glad.h>
@@ -26,11 +26,14 @@ void main(){
 
 static const char* fragmentShaderSrc = R"glsl(
 #version 330 core
-
 out vec4 FragColor;
 
 uniform vec2 uResolution;
 uniform float uTime;
+uniform float uSpeed;
+uniform float warp;
+uniform float thickness;
+uniform float colorShift;
 
 /*
     Corner-bending tunnel
@@ -146,7 +149,7 @@ void main() {
     float time = uTime;
 
     // Travel speed and depth
-    float speed = 1.6;
+    float speed = uSpeed;
     float z = time * speed;
 
     // Path orientation and banking (roll around the tunnel axis)
@@ -208,7 +211,18 @@ void main() {
     // Final tone mapping
     col = pow(col, vec3(0.9)); // mild gamma tweak
 
-    FragColor = vec4(p*0.5+0.5, 0.0, 1.0);
+    FragColor = vec4(col, 1.0);
+
+
+    // Final tone mapping
+  // col = pow(col, vec3(0.9)); // mild gamma tweak
+  //  col = pow(clamp(col, 0.0, 1.0), vec3(0.8));
+
+//FragColor = vec4(0.2, 0.4, 0.8, 1.0);//blue error is in uniforms
+//FragColor = vec4(uResolution.xy/1000.0, 0.0, 1.0);//yellow
+
+    //FragColor = vec4(col, 1.0);
+
 }
 )glsl";
 
@@ -247,7 +261,7 @@ int main(int argc, char** argv) {
         std::cerr << "SDL_Init failed: " << SDL_GetError() << "\n";
         return 1;
     }
-    //SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_VIDEO);
 
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
@@ -287,10 +301,11 @@ int main(int argc, char** argv) {
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, nullptr);
 
-    // Uniform locations
-    GLint locTime = glGetUniformLocation(prog, "iTime");
-    GLint locRes = glGetUniformLocation(prog, "iResolution");
-    GLint locSpeed = glGetUniformLocation(prog, "speed");
+    // TODO: Uniform locations
+    // Now query the uniform location
+    GLint locRes = glGetUniformLocation(prog, "uResolution");
+    GLint locTime = glGetUniformLocation(prog, "uTime");
+    GLint locSpeed = glGetUniformLocation(prog, "uSpeed");
     GLint locWarp = glGetUniformLocation(prog, "warp");
     GLint locThickness = glGetUniformLocation(prog, "thickness");
     GLint locColorShift = glGetUniformLocation(prog, "colorShift");
@@ -299,10 +314,11 @@ int main(int argc, char** argv) {
     bool running = true;
     SDL_Event e;
     // default params
-    float speed = 6.0f;
+    float speed = 2.0f;
     float warp = 1.0f;
     float thickness = 0.18f;
     float colorShift = 0.0f;
+    glViewport(0, 0, w, h);
 
     while (running) {
         while (SDL_PollEvent(&e)) {
@@ -339,6 +355,13 @@ int main(int argc, char** argv) {
         glUniform1f(locThickness, thickness);
         glUniform1f(locColorShift, colorShift);
 
+        std::cout << "Loc iTime=" << locTime
+            << " uResolution=" << locRes
+            << " speed=" << locSpeed
+            << " warp=" << locWarp
+            << " thickness=" << locThickness
+            << " colorShift=" << locColorShift
+            << "\n";
         glBindVertexArray(vao);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
