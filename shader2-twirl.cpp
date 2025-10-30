@@ -65,7 +65,7 @@ float tunnelSDF(vec3 p){
     float r = length(p.xy);
     float wave = 0.35 * sin(6.0 * p.z + 2.0 * sin(3.0 * p.z + iTime * 0.6));
     float rings = 0.22 * sin(40.0 * (r + 0.6 * sin(2.0 * p.z + iTime)));
-    float radius = 36.0 + wave + rings;
+    float radius = 1.0 + wave + rings;
     return r - radius;
 }
 
